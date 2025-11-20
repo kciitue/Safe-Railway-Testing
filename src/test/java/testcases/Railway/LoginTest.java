@@ -48,7 +48,7 @@ public class LoginTest {
         LoginPage loginPage = homePage.gotoLoginPage();
 
         GeneralPage loginResult = loginPage.login("", Constant.PASSWORD);
-        String actualMsg = loginResult.getErrorMessage();
+        String actualMsg = loginResult.getErrorMsg();
         String expectedMsg = "There was a problem with your login and/or errors exist in your form.";
 
         Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed as expected");
@@ -63,7 +63,7 @@ public class LoginTest {
         LoginPage loginPage = homePage.gotoLoginPage();
 
         GeneralPage loginResult = loginPage.login(Constant.USERNAME, "123456780");
-        String actualMsg = loginResult.getErrorMessage();
+        String actualMsg = loginResult.getErrorMsg();
         String expectedMsg = "There was a problem with your login and/or errors exist in your form.";
 
         Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed as expected");
@@ -89,7 +89,6 @@ public class LoginTest {
         LoginPage loginPage = homePage.gotoLoginPage();
 
         for (int i = 1; i <= 4; i++) {
-            System.out.println("Lần đăng nhập thứ " + i);
             loginPage.login(Constant.USERNAME, "123456780");
         }
 

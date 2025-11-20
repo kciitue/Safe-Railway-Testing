@@ -59,6 +59,7 @@ public class RegisterPage extends GeneralPage {
     public RegisterPage register(String username, String password, String confirmpw, String pid) {
         this.getTxtEmail().sendKeys(username);
         this.getTxtPassword().sendKeys(password);
+        ((JavascriptExecutor) Constant.WEBDRIVER).executeScript("window.scrollBy(0,100)");
         this.getTxtConfirmPw().sendKeys(confirmpw);
         this.getTxtPID().sendKeys(pid);
         ((JavascriptExecutor) Constant.WEBDRIVER).executeScript("window.scrollBy(0,400)");

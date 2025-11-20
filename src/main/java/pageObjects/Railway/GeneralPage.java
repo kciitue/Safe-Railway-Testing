@@ -15,6 +15,8 @@ public class GeneralPage
     private final By tabMyTicket = By.xpath("//div[@id='menu']//a[@href='/Page/ManageTicket.cshtml']");
     private final By tabChangePassword = By.xpath("//div[@id='menu']//a[@href='/Account/ChangePassword.cshtml']");
     private final By tabRegister = By.xpath("//div[@id='menu']//a[@href='/Account/Register.cshtml']");
+    private final By tabTicketPrice = By.xpath("//div[@id='menu']//a[@href='/Page/TrainPriceListPage.cshtml']");
+    private final By tabTimetable = By.xpath("//a[@href='TrainTimeListPage.cshtml']");
     //Elements
     protected WebElement getTabLogin() {
         return Constant.WEBDRIVER.findElement(tabLogin);
@@ -47,18 +49,25 @@ public class GeneralPage
     protected WebElement getTabRegister() {
         return Constant.WEBDRIVER.findElement(tabRegister);
     }
+
+    protected WebElement getTabTicketPrice() {
+        return Constant.WEBDRIVER.findElement(tabTicketPrice);
+    }
+
+    protected WebElement getTabTimetable() {
+        return Constant.WEBDRIVER.findElement(tabTimetable);
+    }
     //Methods
     public String getWelcomeMessage() {
         return this.getLblWelcomeMessage().getText();
     }
 
+    public String getErrorMsg() {
+        return this.getLblLoginErrorMsg().getText();
+    }
     public LoginPage gotoLoginPage() {
         this.getTabLogin().click();
         return new LoginPage();
-    }
-
-    public String getErrorMessage() {
-        return this.getLblLoginErrorMsg().getText();
     }
 
     public LoginPage gotoBookTicketUnlogged() {
@@ -101,5 +110,15 @@ public class GeneralPage
     public BookTicketPage gotoBookTicketPage() {
         this.getTabBookTicket().click();
         return new BookTicketPage();
+    }
+
+    public TicketPricePage gotoTicketPricePage() {
+        this.getTabTicketPrice().click();
+        return new TicketPricePage();
+    }
+
+    public TimetablePage gotoTimetablePage() {
+        this.getTabTimetable().click();
+        return new TimetablePage();
     }
 }
