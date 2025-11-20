@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>Test Execution Report</title>
+<style>
+body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
+h2 { color: #333; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
+h3 { margin-top: 30px; color: #555; }
+table { width: 100%; border-collapse: collapse; background-color: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+th { background-color: #007bff; color: white; padding: 12px; text-align: left; border: 1px solid #ddd; white-space: nowrap; }
+td { padding: 10px; border: 1px solid #ddd; vertical-align: middle; }
+.status-pass { color: #28a745; font-weight: bold; }
+.status-fail { color: #dc3545; font-weight: bold; }
+.status-skip { color: #ffc107; font-weight: bold; }
+.thumb { width: 100px; height: auto; border: 1px solid #ddd; padding: 2px; cursor: pointer; transition: 0.3s; }
+.thumb:hover { transform: scale(1.5); }
+</style>
+</head>
+<body>
+<h2>AUTOMATED TEST REPORT</h2>
+<h3>Test Suite: LoginTests</h3>
+<table>
+<thead><tr>
+<th>Test Case Name</th>
+<th>Status</th>
+<th>Error Message / Exception</th>
+<th>Screenshot</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>TC03</td>
+<td class='status-fail'>FAIL</td>
+<td style='font-size: 13px; color: #555;'>Error message is not displayed as expected expected [There was a problem with your login and/or errors exist in your form.] but found [Invalid username or password. Please try again.]</td>
+<td style='text-align: center;'>
+<a href='screenshots/TC03.png' target='_blank'>
+<img src='screenshots/TC03.png' class='thumb' alt='Screenshot'/>
+</a>
+</td>
+</tr>
+<tr>
+<td>TC05</td>
+<td class='status-fail'>FAIL</td>
+<td style='font-size: 13px; color: #555;'>Error message is not displayed as expected expected [You have used 4 out of 5 login attempts. After all 5 have been used, you will be unable to login for 15 minutes.] but found [Invalid username or password. Please try again.]</td>
+<td style='text-align: center;'>
+<a href='screenshots/TC05.png' target='_blank'>
+<img src='screenshots/TC05.png' class='thumb' alt='Screenshot'/>
+</a>
+</td>
+</tr>
+<tr>
+<td>TC01</td>
+<td class='status-pass'>PASS</td>
+<td style='font-size: 13px; color: #555;'></td>
+<td style='text-align: center;'>
+<a href='screenshots/TC01.png' target='_blank'>
+<img src='screenshots/TC01.png' class='thumb' alt='Screenshot'/>
+</a>
+</td>
+</tr>
+<tr>
+<td>TC02</td>
+<td class='status-pass'>PASS</td>
+<td style='font-size: 13px; color: #555;'></td>
+<td style='text-align: center;'>
+<a href='screenshots/TC02.png' target='_blank'>
+<img src='screenshots/TC02.png' class='thumb' alt='Screenshot'/>
+</a>
+</td>
+</tr>
+<tr>
+<td>TC04</td>
+<td class='status-pass'>PASS</td>
+<td style='font-size: 13px; color: #555;'></td>
+<td style='text-align: center;'>
+<a href='screenshots/TC04.png' target='_blank'>
+<img src='screenshots/TC04.png' class='thumb' alt='Screenshot'/>
+</a>
+</td>
+</tr>
+<tr>
+<td>TC06</td>
+<td class='status-pass'>PASS</td>
+<td style='font-size: 13px; color: #555;'></td>
+<td style='text-align: center;'>
+<a href='screenshots/TC06.png' target='_blank'>
+<img src='screenshots/TC06.png' class='thumb' alt='Screenshot'/>
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Test Suite: RegisterTests</h3>
+<table>
+<thead><tr>
+<th>Test Case Name</th>
+<th>Status</th>
+<th>Error Message / Exception</th>
+<th>Screenshot</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>TC07</td>
+<td class='status-fail'>FAIL</td>
+<td style='font-size: 13px; color: #555;'>Message should be displayed as expected expected [Thank you for registering your account] but found [Please fill the form below to create a new account or login if you already have one.
+If you already created an account but haven't confirmed it yet, go here and enter the confirmation code which can be found in your email.
+Please make sure your PID/Passport Number is correct. It can't be changed.]</td>
+<td style='text-align: center;'>
+<a href='screenshots/TC07.png' target='_blank'>
+<img src='screenshots/TC07.png' class='thumb' alt='Screenshot'/>
+</a>
+</td>
+</tr>
+<tr>
+<td>TC08</td>
+<td class='status-fail'>FAIL</td>
+<td style='font-size: 13px; color: #555;'>stale element reference: stale element not found
+  (Session info: chrome=142.0.7444.163)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Build info: version: '4.37.0', revision: '3c1da1e342'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.28'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [f87592f44c11a1d5a7c239bdd096b3b1, clickElement {id=f.D0D0ECB8C0825078CC0FE59C5914609F.d.525E261F62299BC5AFF0593413BF823A.e.17}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.163, chrome: {chromedriverVersion: 142.0.7444.175 (302067f14a4..., userDataDir: C:\Users\baokh\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52163}, goog:processID: 13680, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52163/devtoo..., se:cdpVersion: 142.0.7444.163, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (f87592f44c11a1d5a7c239bdd096b3b1)] -> xpath: //div[@id='menu']//a[@href='/Account/Login.cshtml']]
+Session ID: f87592f44c11a1d5a7c239bdd096b3b1</td>
+<td style='text-align: center;'>
+<a href='screenshots/TC08.png' target='_blank'>
+<img src='screenshots/TC08.png' class='thumb' alt='Screenshot'/>
+</a>
+</td>
+</tr>
+<tr>
+<td>TC09</td>
+<td class='status-fail'>FAIL</td>
+<td style='font-size: 13px; color: #555;'>stale element reference: stale element not found
+  (Session info: chrome=142.0.7444.163)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Build info: version: '4.37.0', revision: '3c1da1e342'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.28'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [922bfd74e9e12879e8fb52c8930140d0, clickElement {id=f.593E2B86F3DE761A54016C3ECFA8A2F6.d.D8E750F906BC5713D92F7B97423B8A0D.e.39}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.163, chrome: {chromedriverVersion: 142.0.7444.175 (302067f14a4..., userDataDir: C:\Users\baokh\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60287}, goog:processID: 28340, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60287/devtoo..., se:cdpVersion: 142.0.7444.163, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (922bfd74e9e12879e8fb52c8930140d0)] -> xpath: //div[@id='menu']//a[@href='/Account/Login.cshtml']]
+Session ID: 922bfd74e9e12879e8fb52c8930140d0</td>
+<td style='text-align: center;'>
+<a href='screenshots/TC09.png' target='_blank'>
+<img src='screenshots/TC09.png' class='thumb' alt='Screenshot'/>
+</a>
+</td>
+</tr>
+<tr>
+<td>TC10</td>
+<td class='status-fail'>FAIL</td>
+<td style='font-size: 13px; color: #555;'>no such element: Unable to locate element: {"method":"xpath","selector":"//p[@class='message error']"}
+  (Session info: chrome=142.0.7444.163)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: '4.37.0', revision: '3c1da1e342'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.28'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [afba4129fd98fdaad2feedc97505a916, findElement {using=xpath, value=//p[@class='message error']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.163, chrome: {chromedriverVersion: 142.0.7444.175 (302067f14a4..., userDataDir: C:\Users\baokh\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56340}, goog:processID: 33164, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56340/devtoo..., se:cdpVersion: 142.0.7444.163, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: afba4129fd98fdaad2feedc97505a916</td>
+<td style='text-align: center;'>
+<a href='screenshots/TC10.png' target='_blank'>
+<img src='screenshots/TC10.png' class='thumb' alt='Screenshot'/>
+</a>
+</td>
+</tr>
+<tr>
+<td>TC11</td>
+<td class='status-fail'>FAIL</td>
+<td style='font-size: 13px; color: #555;'>no such element: Unable to locate element: {"method":"xpath","selector":"//p[@class='message error']"}
+  (Session info: chrome=142.0.7444.163)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: '4.37.0', revision: '3c1da1e342'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.28'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [d4dbbf340596d5b6eaef3209f7c5f7eb, findElement {using=xpath, value=//p[@class='message error']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.163, chrome: {chromedriverVersion: 142.0.7444.175 (302067f14a4..., userDataDir: C:\Users\baokh\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62461}, goog:processID: 29516, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62461/devtoo..., se:cdpVersion: 142.0.7444.163, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: d4dbbf340596d5b6eaef3209f7c5f7eb</td>
+<td style='text-align: center;'>
+<a href='screenshots/TC11.png' target='_blank'>
+<img src='screenshots/TC11.png' class='thumb' alt='Screenshot'/>
+</a>
+</td>
+</tr>
+<tr>
+<td>TC12</td>
+<td class='status-fail'>FAIL</td>
+<td style='font-size: 13px; color: #555;'>stale element reference: stale element not found
+  (Session info: chrome=142.0.7444.163)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Build info: version: '4.37.0', revision: '3c1da1e342'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.28'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [7c16f86837c0699030794e2fa333828c, clickElement {id=f.A7FA1B001442FEDB5979366533295B97.d.99AE370ADB1AC5630D9721015701F4A1.e.17}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.163, chrome: {chromedriverVersion: 142.0.7444.175 (302067f14a4..., userDataDir: C:\Users\baokh\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62183}, goog:processID: 28124, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62183/devtoo..., se:cdpVersion: 142.0.7444.163, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (7c16f86837c0699030794e2fa333828c)] -> xpath: //div[@id='menu']//a[@href='/Account/Login.cshtml']]
+Session ID: 7c16f86837c0699030794e2fa333828c</td>
+<td style='text-align: center;'>
+<a href='screenshots/TC12.png' target='_blank'>
+<img src='screenshots/TC12.png' class='thumb' alt='Screenshot'/>
+</a>
+</td>
+</tr>
+<tr>
+<td>TC13</td>
+<td class='status-fail'>FAIL</td>
+<td style='font-size: 13px; color: #555;'>Error page displays after click 'Send Instructions' button expected [true] but found [false]</td>
+<td style='text-align: center;'>
+<a href='screenshots/TC13.png' target='_blank'>
+<img src='screenshots/TC13.png' class='thumb' alt='Screenshot'/>
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Test Suite: BookTicketTests</h3>
+<table>
+<thead><tr>
+<th>Test Case Name</th>
+<th>Status</th>
+<th>Error Message / Exception</th>
+<th>Screenshot</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>TC14</td>
+<td class='status-fail'>FAIL</td>
+<td style='font-size: 13px; color: #555;'>stale element reference: stale element not found
+  (Session info: chrome=142.0.7444.163)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Build info: version: '4.37.0', revision: '3c1da1e342'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.28'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [fb72da3640bba67a5fa748b46e2d1f2a, clickElement {id=f.2DB7AC28BF676E9ACEC2D973F29DAD38.d.51FDC8391A217A37634F154881A4AA6B.e.38}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.163, chrome: {chromedriverVersion: 142.0.7444.175 (302067f14a4..., userDataDir: C:\Users\baokh\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56133}, goog:processID: 27544, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56133/devtoo..., se:cdpVersion: 142.0.7444.163, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (fb72da3640bba67a5fa748b46e2d1f2a)] -> xpath: //div[@id='menu']//a[@href='/Account/Login.cshtml']]
+Session ID: fb72da3640bba67a5fa748b46e2d1f2a</td>
+<td style='text-align: center;'>
+<a href='screenshots/TC14.png' target='_blank'>
+<img src='screenshots/TC14.png' class='thumb' alt='Screenshot'/>
+</a>
+</td>
+</tr>
+<tr>
+<td>TC16</td>
+<td class='status-fail'>FAIL</td>
+<td style='font-size: 13px; color: #555;'>stale element reference: stale element not found
+  (Session info: chrome=142.0.7444.163)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Build info: version: '4.37.0', revision: '3c1da1e342'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.28'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [0d1e016ca523d7796419f5b21b7d07ae, clickElement {id=f.806D970E0DD42DFD215918F1D7151B97.d.F7FF11D4855F7778F7BCC80F87D4666B.e.38}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.163, chrome: {chromedriverVersion: 142.0.7444.175 (302067f14a4..., userDataDir: C:\Users\baokh\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59268}, goog:processID: 33752, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59268/devtoo..., se:cdpVersion: 142.0.7444.163, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (0d1e016ca523d7796419f5b21b7d07ae)] -> xpath: //div[@id='menu']//a[@href='/Account/Login.cshtml']]
+Session ID: 0d1e016ca523d7796419f5b21b7d07ae</td>
+<td style='text-align: center;'>
+<a href='screenshots/TC16.png' target='_blank'>
+<img src='screenshots/TC16.png' class='thumb' alt='Screenshot'/>
+</a>
+</td>
+</tr>
+<tr>
+<td>TC15</td>
+<td class='status-pass'>PASS</td>
+<td style='font-size: 13px; color: #555;'></td>
+<td style='text-align: center;'>
+<a href='screenshots/TC15.png' target='_blank'>
+<img src='screenshots/TC15.png' class='thumb' alt='Screenshot'/>
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</body></html>
