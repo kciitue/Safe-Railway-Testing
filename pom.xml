@@ -23,6 +23,7 @@
             <artifactId>selenium-java</artifactId>
             <version>4.37.0</version>
         </dependency>
+
     </dependencies>
 
     <properties>

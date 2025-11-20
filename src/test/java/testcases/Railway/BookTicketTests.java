@@ -12,9 +12,7 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pageObjects.Railway.*;
 
-import java.time.format.DateTimeFormatter;
-
-public class BookTicketTest {
+public class BookTicketTests {
     String email;
     String password;
     String pid;
@@ -26,9 +24,9 @@ public class BookTicketTest {
         Constant.WEBDRIVER.manage().window().maximize();
         Constant.WEBDRIVER.get(Constant.RAILWAY_URL);
 
-        String email = Utilities.generateRandomEmail(7);
-        String password = Utilities.generateRandomPassword(10);
-        String pid = Utilities.generateRandomAlphanumericPID(10);
+        String email = Utilities.generateRandomEmail();
+        String password = Utilities.generateRandomPassword();
+        String pid = Utilities.generateRandomPID();
 
         this.email = email;
         this.password = password;
@@ -49,13 +47,17 @@ public class BookTicketTest {
         homePage.open();
 
         RegisterPage registerPage = homePage.gotoRegisterPage();
+        Utilities.scrollToCenter();
+
         RegisterPage resultPage = registerPage.register(email, password, password, pid);
 
         LoginPage loginPage = resultPage.gotoLoginPage();
+        Utilities.scrollToCenter();
+
         HomePage loggedPage = loginPage.login(email, password);
 
         TicketPricePage ticketPricePage = loggedPage.gotoTicketPricePage();
-        ((JavascriptExecutor) Constant.WEBDRIVER).executeScript("window.scrollBy(0,500)");
+        Utilities.scrollToCenter();
 
         ticketPricePage.clickCheckPrice("Sài Gòn", "Sài Gòn to Nha Trang");
         int ticketPrice = ticketPricePage.getPriceByDescription("Soft bed with air conditioner");
@@ -63,7 +65,7 @@ public class BookTicketTest {
         BookTicketPage bookTicketPage = ticketPricePage.gotoBookTicketPage();
 
         BookTicketPage bookSuccessfully = bookTicketPage.bookTicket();
-        ((JavascriptExecutor) Constant.WEBDRIVER).executeScript("window.scrollBy(0,300)");
+        Utilities.scrollToCenter();
 
         int totalPrice = bookSuccessfully.calculateTotalPrice(ticketPrice, 1);
 
@@ -116,9 +118,13 @@ public class BookTicketTest {
         homePage.open();
 
         RegisterPage registerPage = homePage.gotoRegisterPage();
+        Utilities.scrollToCenter();
+
         RegisterPage resultPage = registerPage.register(email, password, password, pid);
 
         LoginPage loginPage = resultPage.gotoLoginPage();
+        Utilities.scrollToCenter();
+
         HomePage loggedPage = loginPage.login(email, password);
 
         TimetablePage timetablePage = loggedPage.gotoTimetablePage();
@@ -141,9 +147,13 @@ public class BookTicketTest {
         homePage.open();
 
         RegisterPage registerPage = homePage.gotoRegisterPage();
+        Utilities.scrollToCenter();
+
         RegisterPage resultPage = registerPage.register(email, password, password, pid);
 
         LoginPage loginPage = resultPage.gotoLoginPage();
+        Utilities.scrollToCenter();
+
         HomePage loggedPage = loginPage.login(email, password);
 
         BookTicketPage bookTicketPage = loggedPage.gotoBookTicketPage();
@@ -151,11 +161,10 @@ public class BookTicketTest {
         String ticketID = bookTicketPage.getID();
 
         MyTicketPage myTicketPage = bookTicketPage.gotoMyTicketPage();
+        Utilities.scrollToCenter();
 
-        ((JavascriptExecutor) Constant.WEBDRIVER).executeScript("window.scrollBy(0,400)");
         myTicketPage.cancelTicket(ticketID);
 
         myTicketPage.isTicketVisible(ticketID);
-
     }
 }

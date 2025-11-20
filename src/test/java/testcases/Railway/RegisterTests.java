@@ -2,8 +2,6 @@ package testcases.Railway;
 
 import common.Constant;
 import common.Utilities;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -12,24 +10,14 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageObjects.Railway.*;
 
-public class RegisterTest {
-    String email;
-    String password;
-    String pid;
+public class RegisterTests {
+
     @BeforeMethod
     public void beforeMethod() {
         System.out.println("Pre-condition");
         Constant.WEBDRIVER = new ChromeDriver();
         Constant.WEBDRIVER.manage().window().maximize();
         Constant.WEBDRIVER.get(Constant.RAILWAY_URL);
-
-        String email = Utilities.generateRandomEmail(5);
-        String password = Utilities.generateRandomPassword(10);
-        String pid = Utilities.generateRandomAlphanumericPID(10);
-
-        this.email = email;
-        this.password = password;
-        this.pid = pid;
     }
 
     @AfterMethod
@@ -46,6 +34,11 @@ public class RegisterTest {
         homePage.open();
 
         RegisterPage registerPage = homePage.gotoRegisterPage();
+        Utilities.scrollToCenter();
+
+        String email = Utilities.generateRandomEmail();
+        String password = Utilities.generateRandomPassword();
+        String pid = Utilities.generateRandomPID();
 
         String actualMsg = registerPage.register(email, password, password,pid).getSuccessfullyMsg();
         String expectedMsg = "Thank you for registering your account";
@@ -60,12 +53,18 @@ public class RegisterTest {
         homePage.open();
 
         RegisterPage registerPage = homePage.gotoRegisterPage();
+        Utilities.scrollToCenter();
+
+        String email = Utilities.generateRandomEmail();
+        String password = Utilities.generateRandomPassword();
+        String pid = Utilities.generateRandomPID();
+
         RegisterPage resultPage = registerPage.register(email, password, password, pid);
 
         LoginPage loginPage = resultPage.gotoLoginPage();
+        Utilities.scrollToCenter();
 
         HomePage loginResult = loginPage.login(email, password);
-        ((JavascriptExecutor) Constant.WEBDRIVER).executeScript("window.scrollBy(0,200)");
 
         String actualMsg = loginResult.getErrorMessage();
         String expectedMsg = "Invalid username or password. Please try again.";
@@ -80,14 +79,24 @@ public class RegisterTest {
         homePage.open();
 
         RegisterPage registerPage = homePage.gotoRegisterPage();
+        Utilities.scrollToCenter();
+
+        String email = Utilities.generateRandomEmail();
+        String password = Utilities.generateRandomPassword();
+        String pid = Utilities.generateRandomPID();
+
         RegisterPage resultPage = registerPage.register(email, password, password, pid);
 
         LoginPage loginPage = resultPage.gotoLoginPage();
+        Utilities.scrollToCenter();
 
         HomePage loggedPage = loginPage.login(email, password);
+        String newPassword = Utilities.generateRandomPassword();
+
         ChangePasswordPage changePasswordPage = loggedPage.gotoChangePasswordPage();
 
-        changePasswordPage.changePassword(password, "06062000");
+        changePasswordPage.changePassword(password, newPassword);
+
         String actualMsg = changePasswordPage.getSuccessMsg();
         String expectedMsg = "Your password has been updated";
 
@@ -101,8 +110,14 @@ public class RegisterTest {
         homePage.open();
 
         RegisterPage registerPage = homePage.gotoRegisterPage();
-        RegisterPage regResult = registerPage.register("harding.jhostin@dunefee.com", "17062019", "12345678","1536223823");
-        ((JavascriptExecutor) Constant.WEBDRIVER).executeScript("window.scrollBy(0,300)");
+        Utilities.scrollToCenter();
+
+        String email = Utilities.generateRandomEmail();
+        String password = Utilities.generateRandomPassword();
+        String pid = Utilities.generateRandomPID();
+        String confirmPassword = Utilities.generateRandomPassword();
+
+        RegisterPage regResult = registerPage.register(email, password, confirmPassword,pid);
 
         String actualMsg = regResult.getRegisterErrorMsg();
         String expectedMsg = "There're errors in the form. Please correct the errors and try again.";
@@ -117,9 +132,11 @@ public class RegisterTest {
         homePage.open();
 
         RegisterPage registerPage = homePage.gotoRegisterPage();
+        Utilities.scrollToCenter();
+
+        String email = Utilities.generateRandomEmail();
 
         RegisterPage regResult = registerPage.register(email, "", "","");
-        ((JavascriptExecutor) Constant.WEBDRIVER).executeScript("window.scrollBy(0,500)");
 
         String actualRegMsg = regResult.getRegisterErrorMsg();
         String expectedRegMsg = "There're errors in the form. Please correct the errors and try again.";
@@ -141,13 +158,20 @@ public class RegisterTest {
         homePage.open();
 
         RegisterPage registerPage = homePage.gotoRegisterPage();
+        Utilities.scrollToCenter();
+
+        String email = Utilities.generateRandomEmail();
+        String password = Utilities.generateRandomPassword();
+        String pid = Utilities.generateRandomPID();
+
         RegisterPage resultPage = registerPage.register(email, password, password, pid);
 
         LoginPage loginPage = resultPage.gotoLoginPage();
-        ((JavascriptExecutor) Constant.WEBDRIVER).executeScript("window.scrollBy(0,200)");
-        ForgotPwPage forgotPwPage = loginPage.gotoForgotPwPage();
+        Utilities.scrollToCenter();
 
-        ((JavascriptExecutor) Constant.WEBDRIVER).executeScript("window.scrollBy(0,100)");
+        ForgotPwPage forgotPwPage = loginPage.gotoForgotPwPage();
+        Utilities.scrollToCenter();
+
         forgotPwPage.gotoPwChangeForm();
 
         Assert.assertTrue(false,"Error page displays after click 'Send Instructions' button");
@@ -160,13 +184,20 @@ public class RegisterTest {
         homePage.open();
 
         RegisterPage registerPage = homePage.gotoRegisterPage();
+        Utilities.scrollToCenter();
+
+        String email = Utilities.generateRandomEmail();
+        String password = Utilities.generateRandomPassword();
+        String pid = Utilities.generateRandomPID();
+
         RegisterPage resultPage = registerPage.register(email, password, password, pid);
 
         LoginPage loginPage = resultPage.gotoLoginPage();
-        ((JavascriptExecutor) Constant.WEBDRIVER).executeScript("window.scrollBy(0,200)");
-        ForgotPwPage forgotPwPage = loginPage.gotoForgotPwPage();
+        Utilities.scrollToCenter();
 
-        ((JavascriptExecutor) Constant.WEBDRIVER).executeScript("window.scrollBy(0,100)");
+        ForgotPwPage forgotPwPage = loginPage.gotoForgotPwPage();
+        Utilities.scrollToCenter();
+
         forgotPwPage.gotoPwChangeForm();
 
         Assert.assertTrue(false,"Error page displays after click 'Send Instructions' button");

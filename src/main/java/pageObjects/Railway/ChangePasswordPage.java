@@ -41,13 +41,13 @@ public class ChangePasswordPage extends GeneralPage {
         return getHeaderChangePW().isDisplayed();
     }
 
-    public HomePage changePassword(String currentPw, String newPw) {
+    public ChangePasswordPage changePassword(String currentPw, String newPw) {
         this.getTxtCurrentPW().sendKeys(currentPw);
         this.getTxtNewPW().sendKeys(newPw);
         this.getTxtConfirmPW().sendKeys(newPw);
         this.getBtnChangePw().click();
 
-        return new HomePage();
+        return this;
     }
 
     public String getSuccessMsg() {

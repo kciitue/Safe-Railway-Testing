@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Railway Test Suite">
+    <listeners>
+        <listener class-name="listeners.TestListener" />
+        <listener class-name="listeners.HTMLReporter"/>
+    </listeners>
+    <test name="LoginTests">
+        <classes>
+            <class name="testcases.Railway.LoginTests"/>
+        </classes>
+    </test>
+
+    <test name="RegisterTests">
+        <classes>
+            <class name="testcases.Railway.RegisterTests"/>
+        </classes>
+    </test>
+
+    <test name="BookTicketTests">
+        <classes>
+            <class name="testcases.Railway.BookTicketTests"/>
+        </classes>
+    </test>
+</suite>
