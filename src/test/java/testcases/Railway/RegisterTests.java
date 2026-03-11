@@ -78,24 +78,15 @@ public class RegisterTests {
         HomePage homePage = new HomePage();
         homePage.open();
 
-        RegisterPage registerPage = homePage.gotoRegisterPage();
+        LoginPage loginPage = homePage.gotoLoginPage();
         Utilities.scrollToCenter();
 
-        String email = Utilities.generateRandomEmail();
-        String password = Utilities.generateRandomPassword();
-        String pid = Utilities.generateRandomPID();
-
-        RegisterPage resultPage = registerPage.register(email, password, password, pid);
-
-        LoginPage loginPage = resultPage.gotoLoginPage();
-        Utilities.scrollToCenter();
-
-        HomePage loggedPage = loginPage.login(email, password);
+        HomePage loggedPage = loginPage.login("asdfghjk@gmail.com", "1234567890");
         String newPassword = Utilities.generateRandomPassword();
 
         ChangePasswordPage changePasswordPage = loggedPage.gotoChangePasswordPage();
 
-        changePasswordPage.changePassword(password, newPassword);
+        changePasswordPage.changePassword("1234567890", newPassword);
 
         String actualMsg = changePasswordPage.getSuccessMsg();
         String expectedMsg = "Your password has been updated";
@@ -157,16 +148,7 @@ public class RegisterTests {
         HomePage homePage = new HomePage();
         homePage.open();
 
-        RegisterPage registerPage = homePage.gotoRegisterPage();
-        Utilities.scrollToCenter();
-
-        String email = Utilities.generateRandomEmail();
-        String password = Utilities.generateRandomPassword();
-        String pid = Utilities.generateRandomPID();
-
-        RegisterPage resultPage = registerPage.register(email, password, password, pid);
-
-        LoginPage loginPage = resultPage.gotoLoginPage();
+        LoginPage loginPage = homePage.gotoLoginPage();
         Utilities.scrollToCenter();
 
         ForgotPwPage forgotPwPage = loginPage.gotoForgotPwPage();
@@ -183,16 +165,7 @@ public class RegisterTests {
         HomePage homePage = new HomePage();
         homePage.open();
 
-        RegisterPage registerPage = homePage.gotoRegisterPage();
-        Utilities.scrollToCenter();
-
-        String email = Utilities.generateRandomEmail();
-        String password = Utilities.generateRandomPassword();
-        String pid = Utilities.generateRandomPID();
-
-        RegisterPage resultPage = registerPage.register(email, password, password, pid);
-
-        LoginPage loginPage = resultPage.gotoLoginPage();
+        LoginPage loginPage = homePage.gotoLoginPage();
         Utilities.scrollToCenter();
 
         ForgotPwPage forgotPwPage = loginPage.gotoForgotPwPage();

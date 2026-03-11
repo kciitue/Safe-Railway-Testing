@@ -58,6 +58,7 @@ public class RegisterPage extends GeneralPage {
     public WebElement getLblErrorPidMsg() {
         return Constant.WEBDRIVER.findElement(lblErrorPidMsg);
     }
+
     //Methods
     private WebElement waitForVisible(By locator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
@@ -73,19 +74,73 @@ public class RegisterPage extends GeneralPage {
         el.clear();
         el.sendKeys(value);
     }
-    public RegisterPage register(String email, String password, String confirmPass, String pid) {
 
-        type(txtEmail, email);
-        type(txtPassword, password);
-        type(txtConfirmPw, confirmPass);
-        type(txtPID, pid);
+    public RegisterPage register(String username, String password, String confirmpw, String pid) {
+        // Khởi tạo wait
+        WebDriverWait wait = new WebDriverWait(Constant.WEBDRIVER, Duration.ofSeconds(10));
+        JavascriptExecutor js = (JavascriptExecutor) Constant.WEBDRIVER;
 
-        WebElement btn = waitForVisible(btnRegister);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", btn);
-        btn.click();
+        // Nhập email
+        WebElement emailField = this.getTxtEmail();
+        wait.until(ExpectedConditions.visibilityOf(emailField));
+        emailField.sendKeys(username);
 
-        return this;
+        // Nhập password
+        WebElement passwordField = this.getTxtPassword();
+        wait.until(ExpectedConditions.visibilityOf(passwordField));
+        passwordField.sendKeys(password);
+
+
+        // Scroll đến Confirm Password field và wait
+        WebElement confirmPwField = this.getTxtConfirmPw();
+        js.executeScript("arguments[0].scrollIntoView({block: 'center'});", confirmPwField);
+
+        // Wait cho element visible và enabled
+        wait.until(ExpectedConditions.visibilityOf(confirmPwField));
+        wait.until(ExpectedConditions.elementToBeClickable(confirmPwField));
+
+        // Click vào field trước để focus (quan trọng!)
+        try {
+            confirmPwField.click();
+            Thread.sleep(300); // Đợi một chút sau khi click
+        } catch (Exception e) {
+            // Nếu click thất bại, dùng JavaScript
+            js.executeScript("arguments[0].click();", confirmPwField);
+        }
+
+        // Nhập confirm password bằng JavaScript (an toàn hơn)
+        js.executeScript("arguments[0].value = arguments[1];", confirmPwField, confirmpw);
+
+        // Scroll đến PID field và wait
+        WebElement pidField = this.getTxtPID();
+        js.executeScript("arguments[0].scrollIntoView({block: 'center'});", pidField);
+        wait.until(ExpectedConditions.visibilityOf(pidField));
+        wait.until(ExpectedConditions.elementToBeClickable(pidField));
+
+        // Click và nhập PID
+        try {
+            pidField.click();
+            Thread.sleep(300);
+        } catch (Exception e) {
+            js.executeScript("arguments[0].click();", pidField);
+        }
+        js.executeScript("arguments[0].value = arguments[1];", pidField, pid);
+
+        // Scroll đến button Register và click
+        WebElement registerBtn = this.getBtnRegister();
+        js.executeScript("arguments[0].scrollIntoView({block: 'center'});", registerBtn);
+        wait.until(ExpectedConditions.elementToBeClickable(registerBtn));
+
+        // Click button
+        try {
+            registerBtn.click();
+        } catch (Exception e) {
+            js.executeScript("arguments[0].click();", registerBtn);
+        }
+
+        return new RegisterPage();
     }
+
     private void checkAlert() {
         try {
             Alert alert = driver.switchTo().alert();

@@ -46,15 +46,10 @@ public class BookTicketTests {
         HomePage homePage = new HomePage();
         homePage.open();
 
-        RegisterPage registerPage = homePage.gotoRegisterPage();
+        LoginPage loginPage = homePage.gotoLoginPage();
         Utilities.scrollToCenter();
 
-        RegisterPage resultPage = registerPage.register(email, password, password, pid);
-
-        LoginPage loginPage = resultPage.gotoLoginPage();
-        Utilities.scrollToCenter();
-
-        HomePage loggedPage = loginPage.login(email, password);
+        HomePage loggedPage = loginPage.login(Constant.USERNAME, Constant.PASSWORD);
 
         TicketPricePage ticketPricePage = loggedPage.gotoTicketPricePage();
         Utilities.scrollToCenter();
@@ -117,15 +112,10 @@ public class BookTicketTests {
         HomePage homePage = new HomePage();
         homePage.open();
 
-        RegisterPage registerPage = homePage.gotoRegisterPage();
+        LoginPage loginPage = homePage.gotoLoginPage();
         Utilities.scrollToCenter();
 
-        RegisterPage resultPage = registerPage.register(email, password, password, pid);
-
-        LoginPage loginPage = resultPage.gotoLoginPage();
-        Utilities.scrollToCenter();
-
-        HomePage loggedPage = loginPage.login(email, password);
+        HomePage loggedPage = loginPage.login(Constant.USERNAME, Constant.PASSWORD);
 
         TimetablePage timetablePage = loggedPage.gotoTimetablePage();
         BookTicketPage bookTicketPage = timetablePage.clickBookTicket(TimetablePage.Station.HUE, TimetablePage.Station.SAI_GON);
@@ -146,15 +136,10 @@ public class BookTicketTests {
         HomePage homePage = new HomePage();
         homePage.open();
 
-        RegisterPage registerPage = homePage.gotoRegisterPage();
+        LoginPage loginPage = homePage.gotoLoginPage();
         Utilities.scrollToCenter();
 
-        RegisterPage resultPage = registerPage.register(email, password, password, pid);
-
-        LoginPage loginPage = resultPage.gotoLoginPage();
-        Utilities.scrollToCenter();
-
-        HomePage loggedPage = loginPage.login(email, password);
+        HomePage loggedPage = loginPage.login(Constant.USERNAME, Constant.PASSWORD);
 
         BookTicketPage bookTicketPage = loggedPage.gotoBookTicketPage();
         bookTicketPage.bookTicket();
